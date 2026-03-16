@@ -40,11 +40,12 @@
 % \XMUMSetBackgroundTitleAndToc                           % 背景设置方式3：只开启标题页和目录页背景
 % \XMUMSetBackgroundFrameOnly                             % 背景设置方式4：只开启帧背景
 % \XMUMSetBackgroundNone                                  % 背景设置方式5：都不开启背景
-% \begin{frame}[nobg]{本页关闭背景}                        % 单页背景设置：默认有背景，添加 nobg 可关闭当前页背景
-% \end{frame}
 
 % \XMUMSetNavigationOff                                   % 导航按键设置方式1：关闭（默认）
 % \XMUMSetNavigationOn                                    % 导航按键设置方式2：在右下角显示
+
+% \XMUMSetTitleShadowOn                                   % 标题背景阴影设置方式1：开启（默认）
+% \XMUMSetTitleShadowOff                                  % 标题背景阴影设置方式2：关闭
 
 % \XMUMSetTitleLogoDefault                                % 主标题页上方logo方式1：默认（带文字长版校徽）
 % \XMUMSetTitleLogoNone                                   % 主标题页上方logo方式2：不显示任何logo
@@ -97,8 +98,8 @@
 \begin{frame}{接口说明（一）}
     \begin{table}
         \centering
-        \scriptsize
-        \begin{tabular}{p{0.40\linewidth}p{0.50\linewidth}}
+        \tiny
+        \begin{tabular}{p{0.45\linewidth}p{0.45\linewidth}}
             \toprule
             命令 & 作用 \\
             \midrule
@@ -115,11 +116,16 @@
             \texttt{\textbackslash XMUMSetBackgroundTitleAndToc} & 只开启标题页和目录页背景 \\
             \texttt{\textbackslash XMUMSetBackgroundFrameOnly} & 只开启帧背景 \\
             \texttt{\textbackslash XMUMSetBackgroundNone} & 都不开启背景 \\
-            \texttt{\textbackslash begin\{frame\}[nobg]\{title\} ...} & 关闭当前帧背景（默认开启） \\
+            \texttt{\textbackslash begin\{frame\}[nobg]\{title\}} & 关闭当前帧背景 \\
+            \texttt{\textbackslash begin\{frame\}[fragile,nobg]\{title\}} & 关闭当前帧背景（针对包含原样环境的帧） \\
             \midrule
             \multicolumn{2}{l}{\textbf{界面设置}} \\
             \texttt{\textbackslash XMUMSetNavigationOff} & 关闭导航按键（默认） \\
             \texttt{\textbackslash XMUMSetNavigationOn} & 在右下角显示导航按键 \\
+            \midrule
+            \multicolumn{2}{l}{\textbf{阴影设置}} \\
+            \texttt{\textbackslash XMUMSetTitleShadowOn} & 开启标题背景阴影（默认） \\
+            \texttt{\textbackslash XMUMSetTitleShadowOff} & 关闭标题背景阴影 \\
             \bottomrule
         \end{tabular}
     \end{table}
@@ -128,8 +134,8 @@
 \begin{frame}{接口说明（二）}
     \begin{table}
         \centering
-        \scriptsize
-        \begin{tabular}{p{0.50\linewidth}p{0.40\linewidth}}
+        \tiny
+        \begin{tabular}{p{0.45\linewidth}p{0.45\linewidth}}
             \toprule
             命令 & 作用 \\
             \midrule
@@ -145,12 +151,13 @@
             \texttt{\textbackslash XMUMSetFrameLogoPure} & 使用纯校徽图标 \\
             \texttt{\textbackslash XMUMSetFrameLogo\{logo\_01.png,logo\_02.png,...\}} & 设置一个或多个自定义 Logo \\
             \midrule
-            \multicolumn{2}{l}{\textbf{页面生成}} \\
+            \multicolumn{2}{l}{\textbf{语言设置}} \\
             \texttt{\textbackslash XMUMSetLanguageChinese} & 设置界面语言为中文（默认） \\
             \texttt{\textbackslash XMUMSetLanguageEnglish} & 设置界面语言为英文 \\
             \midrule
             \multicolumn{2}{l}{\textbf{页面生成}} \\
-            \texttt{\textbackslash XMUMTitleFrame} & 生成无页码标题页 \\
+            \texttt{\textbackslash XMUMTitleFrame} & 生成标题页 \\
+            \texttt{\textbackslash XMUMSingleLineFrame\{title\}\{text\}} & 生成单行正文页（帧标题与正文均需显式传入） \\
             \bottomrule
         \end{tabular}
     \end{table}
@@ -159,7 +166,7 @@
 \begin{frame}[nobg]{接口说明（三）}
     \begin{figure}
     \centering
-    \includegraphics[width=0.72\textwidth]{img/img-1.png}
+    \includegraphics[width=0.66\textwidth]{img/img-1.png}
     \caption{接口调用（可取消对应位置的注释来调用该接口）}
     \end{figure}
 \end{frame}
@@ -215,8 +222,8 @@
         \item 使用 \texttt{\textbackslash XMUMTitleFrame} 生成标题页，再单独放置目录页。
         \item 按内容组织为 \texttt{\textbackslash section} \texttt{\textbackslash subsection}... 以及若干 \texttt{\textbackslash begin\{frame\}\{帧标题\}} 进行内容编排。
         \item 若某一页不需要背景，可写为 \texttt{\textbackslash begin\{frame\}[nobg]\{帧标题\}} 来关闭背景。
-        \item 若当前页包含 \texttt{lstlisting} 或 \texttt{verbatim} 等原样代码环境，则需将参数写为：\texttt{\textbackslash begin\{frame\}[fragile]\{帧标题\}} 或 \texttt{\textbackslash begin{frame}[fragile,nobg]\{帧标题\}}
-        \item 若包含参考文献，可在末尾加入参考文献页或项目地址页。
+        \item 若当前页包含 \texttt{lstlisting} 或 \texttt{verbatim} 等原样代码环境，则需将参数写为：\texttt{\textbackslash begin\{frame\}[fragile]} 或 \texttt{\textbackslash begin\{frame\}[fragile,nobg]\{帧标题\}}
+        \item 可使用 \texttt{\textbackslash XMUMSingleLineFrame\{帧标题\}\{单行文本\}} 来生成单行正文页。
     \end{enumerate}
 
     \begin{block}{建议}
@@ -264,7 +271,7 @@
         \item 可直接混排中文与英文。
         \item 默认使用 \texttt{xmum\_building\_blue.png} 作为背景，且已降低透明度。
         \item 若某一页不需要背景，可写为 \texttt{\textbackslash begin\{frame\}[nobg]\{帧标题\}} 来关闭背景。
-        \item 若当前页包含 \texttt{lstlisting} 或 \texttt{verbatim} 等原样代码环境，则需将参数写为：\texttt{\textbackslash begin\{frame\}[fragile]\{帧标题\}} 或 \texttt{\textbackslash begin{frame}[fragile,nobg]\{帧标题\}}
+        \item 若当前页包含 \texttt{lstlisting} 或 \texttt{verbatim} 等原样代码环境，则需将参数写为：\texttt{\textbackslash begin\{frame\}[fragile]} 或 \texttt{\textbackslash begin\{frame\}[fragile,nobg]\{帧标题\}}
     \end{itemize}
 
     \begin{block}{单源最短路算法 Dijkstra 时间复杂度}
@@ -298,7 +305,7 @@
     \end{alertblock}
 \end{frame}
 
-\begin{frame}[fragile,nobg]{代码快示例（关闭背景示例）}
+\begin{frame}[fragile,nobg]{代码块示例（关闭背景示例）}
 \begin{lstlisting}
 #include <bits/stdc++.h>
 using namespace std;
@@ -311,7 +318,7 @@ int main() {
 \vspace{5pt}
 \begin{alertblock}{参数说明}
     \begin{itemize}
-        \item 代码环境需要使用 \texttt{fragile} 参数。
+        \item 代码环境需要使用 \texttt{[fragile]} 参数。
         \item 如果同时还需要关闭背景，则参数应为 \texttt{[fragile,nobg]} 来确保代码环境正常显示。
     \end{itemize}
 \end{alertblock}
@@ -360,10 +367,6 @@ int main() {
 %     \bibliography{refs}
 % \end{frame}
 
-\begin{frame}{感谢}
-    \begin{center}
-        {\Large 感谢阅读和使用此模板}
-    \end{center}
-\end{frame}
+\XMUMSingleLineFrame{感谢}{感谢阅读和使用此模板}
 
 \end{document}

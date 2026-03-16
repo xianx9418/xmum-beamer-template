@@ -23,6 +23,8 @@
 \newcommand{\xmum@language}{chinese}
 \newcommand{\xmum@backgroundmode}{both}
 \newcommand{\xmum@navigationmode}{none}
+\newcommand{\xmum@titleshadow}{true}
+
 \newif\ifxmum@titlepage
 \xmum@titlepagefalse
 \newif\ifxmum@tocpage
@@ -56,6 +58,8 @@
 \newcommand{\XMUMSetBackgroundFrameOnly}{\gdef\xmum@backgroundmode{frameonly}}
 \newcommand{\XMUMSetBackgroundTitleAndToc}{\gdef\xmum@backgroundmode{titleandtoc}}
 \newcommand{\XMUMSetBackgroundNone}{\gdef\xmum@backgroundmode{none}}
+\newcommand{\XMUMSetTitleShadowOn}{\gdef\xmum@titleshadow{true}}
+\newcommand{\XMUMSetTitleShadowOff}{\gdef\xmum@titleshadow{false}}
 \newcommand{\XMUMSetNavigationOn}{
     \gdef\xmum@navigationmode{on}
     \setbeamertemplate{navigation symbols}{
@@ -191,7 +195,7 @@
         }
         \vspace{0.9em}
         \makebox[\textwidth][c]{
-            \begin{beamercolorbox}[wd=0.8\textwidth,sep=0.55em,center,rounded=true]{xmum title box}
+            \begin{beamercolorbox}[wd=0.8\textwidth,sep=0.55em,center,rounded=true,shadow=\xmum@titleshadow]{xmum title box}
                 {\usebeamerfont{title}\usebeamercolor[fg]{xmum title box}\inserttitle\par}
             \end{beamercolorbox}
         }\par
@@ -295,6 +299,14 @@
         \titlepage
     \end{frame}
     }
+}
+
+\newcommand{\XMUMSingleLineFrame}[2]{
+    \begin{frame}{#1}
+        \begin{center}
+            {\LARGE #2}
+        \end{center}
+    \end{frame}
 }
 
 \mode<all>

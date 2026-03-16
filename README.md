@@ -1,6 +1,6 @@
 # 厦门大学马来西亚分校深蓝主题风格 Beamer 模板 / Deep Blue Theme Beamer Template for Xiamen University Malaysia
 
-![img-2](img/img-2.png)
+![img-0](img/img-0.png)
 
 这是一个面向厦门大学马来西亚分校场景的 Beamer 模板，主色为深蓝色，适合课程汇报、学术报告、项目答辩、相关会议等演示文稿。
 
@@ -103,6 +103,8 @@ xelatex your_file.tex
 | `\XMUMSetBackgroundTitleAndToc` | 只开启标题页和目录页背景 |
 | `\XMUMSetBackgroundFrameOnly` | 只开启帧背景 |
 | `\XMUMSetBackgroundNone` | 都不开启背景 |
+| `\begin{frame}[nobg]` | 关闭当前帧背景 |
+| `\begin{frame}[fragile,nobg]` | 关闭当前帧背景（针对包含原样环境的帧） |
 
 ### 界面设置
 
@@ -110,6 +112,8 @@ xelatex your_file.tex
 | --- | --- |
 | `\XMUMSetNavigationOff` | 关闭导航按键（默认） |
 | `\XMUMSetNavigationOn` | 在右下角显示导航按键 |
+| `\XMUMSetTitleShadowOn` | 开启标题背景阴影（默认） |
+| `\XMUMSetTitleShadowOff` | 关闭标题背景阴影 |
 
 ### 标题页 Logo
 
@@ -140,7 +144,8 @@ xelatex your_file.tex
 
 | 命令 | 作用 |
 | --- | --- |
-| `\XMUMTitleFrame` | 生成无页码标题页 |
+| `\XMUMTitleFrame` | 生成标题页 |
+| `\XMUMSingleLineFrame{title}{text}` | 生成单行正文页（帧标题与正文均需显式传入） |
 
 ### 快速使用
 
@@ -165,17 +170,20 @@ xelatex your_file.tex
 推荐按以下结构组织文稿：
 
 1. 在导言区设置标题、作者、单位、日期等元数据。
-2. 在 `\begin{document}` 后调用模板接口，例如 Logo、背景、导航和语言设置。
-3. 使用 `\XMUMTitleFrame` 生成标题页。
-4. 单独插入目录页。
-5. 使用 `\section`、`\subsection` 和多个 `frame` 组织正文。
-6. 某一页不需要背景时，使用 `[nobg]` 参数。
-7. 某一页包含 `lstlisting` 或 `verbatim` 等原样环境时，使用 `[fragile]` 或 `[fragile,nobg]` 参数。
+2. 在 `\begin{document}` 后调用模板接口，例如 Logo 及路径、背景、导航按键与语言设置等。
+3. 使用 `\XMUMTitleFrame` 生成标题页，再单独放置目录页。
+4. 按内容组织为 `\section` `\subsection`... 以及若干 `\begin{frame}{帧标题}` 进行内容编排。
+5. 若某一页不需要背景，可写为 `\begin{frame}[nobg]{帧标题}` 来关闭背景。
+6. 若当前页包含 `lstlisting` 或 `verbatim` 等原样代码环境，则需将参数写为：`\begin{frame}[fragile]{帧标题}` 或 `\begin{frame}[fragile,nobg]{帧标题}`
+7. 可使用 `\XMUMSingleLineFrame{帧标题}{单行文本}` 来生成单行正文页。
+
+建议：可参考 [xmum_beamer_readme.tex](xmum_beamer_readme.tex) 中的示例结构，根据实际需求进行调整。
 
 示例：
 
 ```tex
 \begin{frame}[fragile,nobg]{代码帧示例}
+
 \begin{lstlisting}
 #include <bits/stdc++.h>
 using namespace std;
@@ -185,6 +193,7 @@ int main() {
     return 0;
 }
 \end{lstlisting}
+
 \end{frame}
 ```
 
@@ -197,7 +206,7 @@ int main() {
 ## 已知问题
 
 - 在部分 PDF 阅读器（MS Edge）中，全屏模式下最后一页的导航栏可能无法完整显示。
-- 如遇显示异常，建议改用其他 PDF 阅读器，例如 [WPS PDF 独立版](https://www.wps.cn/product/kingsoftpdf)。
+- 如遇显示异常，建议改用其他 PDF 阅读器，推荐使用 [Adobe Acrobat Reader](https://get.adobe.com/reader) 阅读器，或使用 [WPS PDF 独立版](https://www.wps.cn/product/kingsoftpdf)。
 
 ---
 
